@@ -20,6 +20,7 @@ import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.QwertyNetworks.ai_speaker.MyClass
+import com.QwertyNetworks.ai_speaker.R
 import com.QwertyNetworks.ai_speaker.databinding.MainFragmentBinding
 import com.QwertyNetworks.ai_speaker.ui.Constance
 import com.QwertyNetworks.ai_speaker.ui.main.media.MediaPlayerVoice
@@ -103,13 +104,14 @@ class MainFragment : Fragment() {
 
             when(event.action) {
                 MotionEvent.ACTION_DOWN -> {
+                    imageRecording.visibility = View.VISIBLE
+                    readFloatBtn.setImageResource(R.drawable.ic_baseline_voicemail)
                     if(permissionRecorder.checkPermissions()) {
                         mediaRecorderVoice.mediaRecorder()
-                        try {
-                            mediaRecorderVoice.startRecorder()
-                        }catch (e: IOException) {
-                            e.stackTrace
-                        }
+
+                        //начинается запись
+                        mediaRecorderVoice.startRecorder()
+
                         Toast.makeText(context, "action down float button", Toast.LENGTH_SHORT).show()
                     } else {
                         ActivityCompat.requestPermissions(MyClass.activity!!, arrayOf(
@@ -118,11 +120,12 @@ class MainFragment : Fragment() {
                     }
                 }
                 MotionEvent.ACTION_UP -> {
-                    try {
-                        mediaRecorderVoice.stopRecorder()
-                    } catch (e: IOException) {
-                        e.stackTrace
-                    }
+                    imageRecording.visibility = View.INVISIBLE
+                    readFloatBtn.setImageResource(R.drawable.ic_baseline_keyboard_voice_24)
+
+                    //отстанавливается запись
+                    mediaRecorderVoice.stopRecorder()
+
 
                     Toast.makeText(context, "action up float button", Toast.LENGTH_SHORT).show()
                 }
