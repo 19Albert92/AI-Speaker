@@ -1,6 +1,8 @@
 package com.QwertyNetworks.ai_speaker.ui.main.media
 
 import android.media.MediaRecorder
+import java.io.IOException
+import java.lang.Exception
 
 class MediaRecorderVoice(private var audioSavePath: String,
                          private var mediaRecorder: MediaRecorder
@@ -15,11 +17,19 @@ class MediaRecorderVoice(private var audioSavePath: String,
     }
 
     fun startRecorder() {
-        mediaRecorder.prepare()
-        mediaRecorder.start()
+        try {
+            mediaRecorder.prepare()
+            mediaRecorder.start()
+        } catch (e: IOException) {
+            e.stackTrace
+        }
     }
     fun stopRecorder() {
-        mediaRecorder.stop()
-        mediaRecorder.release()
+       try {
+           mediaRecorder.stop()
+           mediaRecorder.release()
+       } catch (e: IOException) {
+           e.stackTrace
+       }
     }
 }

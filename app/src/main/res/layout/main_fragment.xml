@@ -12,6 +12,18 @@
         android:layout_height="match_parent"
         android:id="@+id/mainWebView"/>
 
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/image_recording"
+        android:visibility="invisible"
+        android:alpha=".7"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/monophy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:id="@+id/read_float_btn"
@@ -28,7 +40,7 @@
         android:layout_margin="35dp"
         android:id="@+id/play_float_btn"
         android:alpha=".4"
-        android:src="@drawable/ic_baseline_voicemail"
+        android:src="@drawable/ic_baseline_play"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:rippleColor="#FFFFFF" />
