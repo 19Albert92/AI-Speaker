@@ -12,4 +12,25 @@
         android:layout_height="match_parent"
         android:id="@+id/mainWebView"/>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:id="@+id/read_float_btn"
+        android:layout_height="wrap_content"
+        android:layout_margin="35dp"
+        android:src="@drawable/ic_baseline_keyboard_voice_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:rippleColor="#FFFFFF" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="35dp"
+        android:id="@+id/play_float_btn"
+        android:alpha=".4"
+        android:src="@drawable/ic_baseline_voicemail"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:rippleColor="#FFFFFF" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
