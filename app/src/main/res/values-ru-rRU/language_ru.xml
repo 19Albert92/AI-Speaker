@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="information_toForm">
+        Данные формы будут предварительно зашифрованы и переданы с использованием безопасного SSL-соединения.
+        Мы не храним ваши пароли, а только их хэш-ключи, и не передаем никакие данные третьим лицам.</string>
+
+    <string name="user_agreemer_inform">Пользуясь нашими услугами, вы подтверждаете, что прочитали и
+        полностью согласны с этим документом:</string>
+    <string name="user_agreemer">Пользовательское Соглашение</string>
+    <!--  login action text  -->
+    <string name="remember_password">Забыли пароль?</string>
+    <string name="click_her">Нажмите сюда</string>
+    <string name="button_text_login">Войти</string>
+    <string name="button_text_login_register">Зарегестрироваться</string>
+    <string name="edit_text_login_email">Введите свой адрес электронной почты / логин</string>
+    <string name="edit_text_login_password">Введите свой пароль</string>
+    <string name="login_title">Страница авторизации</string>
+
+    <!--  registration action text  -->
+    <string name="registration">Зарегестрироваться</string>
+    <string name="back">Назад</string>
+    <string name="edit_text_remember_email">Введите адрес электронной почты</string>
+    <string name="btn_next_remember">Дальше</string>
+    <string name="enter_email">Введите адрес электронной почты</string>
+    <string name="enter_name">Введите ваше имя</string>
+    <string name="enter_lastName">Введите вашу фамилию</string>
+    <string name="registration_title">Страница регистрации</string>
+    <string name="birthDate">День рождения:</string>
+    <string name="searchDate">Выбрать дату</string>
+    <string name="date_default" translatable="false">0/0/22</string>
+
+    <!--  remember password action text  -->
+    <string name="rememberPassword_title">Страница Запомнить пароль</string>
+
+    <!--   splash next action text  -->
+    <string name="title_splash">Я - Искусственный Интеллект</string>
+    <string name="title_decription">Меня зовут Max. Я стану вашим верным другом и помощником.
+        Буду напоминать вам о важных делах, играть с вами, обсуждать проблемы и находить
+        их решение. Будущее уже наступило!</string>
+    <string name="next_login">Начать</string>
+    <string name="text_error">Это поле обязателно для запонении!</string>
+    <string name="successfulyRegistration">На ваш адрес электронной почты отправлено письмо со ссылкой для активации аккаунта!</string>
+</resources>

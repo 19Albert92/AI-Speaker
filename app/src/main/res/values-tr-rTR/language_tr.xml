@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="information_toForm">Form verileri önceden şifrelenecek ve
+         güvenli bir SSL bağlantısı kullanılarak aktarılır. Şifrelerinizi saklamıyoruz
+         ama sadece onların hash anahtarları ve üçüncü şahıslara herhangi bir veri aktarmıyoruz.</string>
+
+    <string name="user_agreemer_inform">Hizmetlerimizi kullanarak, bu belgeyi okuduğunuzu ve tamamen kabul ettiğinizi kabul etmektesiniz:</string>
+    <string name="user_agreemer">Kullanım Şartları</string>
+    <!--  login action text  -->
+    <string name="remember_password">Parolanızı mı unuttunuz?</string>
+    <string name="click_her">Buraya Tıkla</string>
+    <string name="button_text_login">İçeri gel</string>
+    <string name="button_text_login_register">Kayıt olmak</string>
+    <string name="edit_text_login_email">E-posta adresinizi/giriş bilgilerinizi girin</string>
+    <string name="edit_text_login_password">Şifrenizi girin</string>
+    <string name="login_title">yetkilendirme sayfası</string>
+
+    <!--  registration action text  -->
+    <string name="registration">Kayıt olmak</string>
+    <string name="back">Geri</string>
+    <string name="edit_text_remember_email">E-posta adresinizi giriniz</string>
+    <string name="btn_next_remember">daha uzak</string>
+    <string name="enter_email">E-posta adresinizi giriniz</string>
+    <string name="enter_name">Adınızı giriniz</string>
+    <string name="enter_lastName">Soyadınızı giriniz</string>
+    <string name="registration_title">Kayıt sayfası</string>
+    <string name="birthDate">Doğum günü:</string>
+    <string name="searchDate">Tarih seç</string>
+    <string name="date_default" translatable="false">0/0/22</string>
+
+    <!--  remember password action text  -->
+    <string name="rememberPassword_title">Şifreyi hatırla sayfası</string>
+    <string name="successfulyRegistration">E-posta adresinize hesabınızı etkinleştirmek için bir bağlantı içeren bir e-posta gönderildi!</string>
+
+    <!--   splash next action text  -->
+    <string name="title_splash">ben yapay zekayım</string>
+    <string name="title_decription">Benim adım Max. Senin sadık arkadaşın ve yardımcın olacağım.
+         Sana önemli şeyleri hatırlatacağım, seninle oynayacağım, sorunları tartışacağım ve
+         onların kararı. Gelecek çoktan geldi!</string>
+    <string name="next_login">Başlamak</string>
+    <string name="text_error">Bu alan gereklidir!</string>
+</resources>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.LoginActivity">
+
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/btn_to_registration"
+        android:id="@+id/btn_registration"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/inform_toForm"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_registration">
+
+        <ImageView
+            style="@style/image_ai_login"
+            android:id="@+id/ai_login_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_registration" />
+
+        <LinearLayout
+            style="@style/linear_layout_login"
+            android:layout_marginHorizontal="45dp">
+
+            <LinearLayout
+                style="@style/linear_layout_login_2"
+                android:id="@+id/group_loginInputs">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_login_email"
+                    style="@style/input_layout_login"
+                    android:layout_marginBottom="5dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/login_email"
+                        style="@style/input_type_email"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/input_layout_error"
+                    android:id="@+id/layout_login_password"
+                    android:layout_marginBottom="5dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/input_type_textPassword"
+                        android:id="@+id/login_password"
+                        android:hint="@string/edit_text_login_password" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/btn_to_login"
+                android:id="@+id/btn_login"
+                android:layout_gravity="center"
+                android:paddingVertical="5dp"
+                android:paddingHorizontal="25dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="25dp">
+
+                <TextView
+                    style="@style/text_remember_password"/>
+
+                <TextView
+                    style="@style/cleck_her_user_agree"
+                    android:id="@+id/btn_remember_password" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        style="@style/text_inform_to_form"
+        android:id="@+id/inform_toForm"
+        android:layout_marginHorizontal="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

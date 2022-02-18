@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="information_toForm">Form data will be pre-encrypted and transmitted using a secure SSL connection. We do not store your passwords, but only their hash keys, and we do not transfer any data to third parties.</string>
+
+    <string name="user_agreemer_inform">By using our services, you confirm that you have read and fully agree with this document:</string>
+    <string name="user_agreemer">User Agreement</string>
+    <!--  login action text  -->
+    <string name="remember_password">Forgot your password?</string>
+    <string name="click_her">Click here</string>
+    <string name="button_text_login">To come in</string>
+    <string name="button_text_login_register">Register</string>
+    <string name="edit_text_login_email">Enter your email / login</string>
+    <string name="edit_text_login_password">Enter your password</string>
+    <string name="login_title">Login page</string>
+
+    <!--  registration action text  -->
+    <string name="registration">Register</string>
+    <string name="back">back</string>
+    <string name="edit_text_remember_email">Enter your email</string>
+    <string name="btn_next_remember">Next</string>
+    <string name="enter_email">Enter your email</string>
+    <string name="enter_name">Enter your name</string>
+    <string name="enter_lastName">Enter your lastname</string>
+    <string name="registration_title">Registration page</string>
+    <string name="birthDate">Birthdate:</string>
+    <string name="searchDate">Select date</string>
+    <string name="date_default" translatable="false">0/0/22</string>
+
+    <!--  remember password action text  -->
+    <string name="rememberPassword_title">Remember password page</string>
+
+    <!--   splash next action text  -->
+    <string name="title_splash">I am Artificial Intelligence</string>
+    <string name="title_decription">My name is Max. I will become your faithful friend and assistant.
+        I will remind you of important things, play with you, discuss problems and find solutions.
+        The future has already arrived!</string>
+    <string name="next_login">To begin</string>
+    <string name="text_error">This field is required!</string>
+    <string name="successfulyRegistration">An email has been sent to your email address with a link to activate your account!</string>
+</resources>

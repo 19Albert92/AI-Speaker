@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.LoginActivity">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_back"
+        style="@style/btn_to_back"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        style="@style/linear_layout_remember_pas"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_back"
+        app:layout_constraintBottom_toTopOf="@+id/inform_toForm">
+
+        <ImageView
+            style="@style/image_ai_remember"
+            android:id="@+id/ai_login_image"/>
+
+        <LinearLayout
+            style="@style/linear_layout_login"
+            android:layout_marginHorizontal="45dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ai_login_image">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginBottom="25dp"
+                android:id="@+id/input_layout_remember_email"
+                style="@style/input_layout_login">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/input_type_email"
+                    android:id="@+id/remember_email"
+                    android:hint="@string/edit_text_remember_email" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                style="@style/btn_remember_next"
+                android:id="@+id/btn_login"
+                android:layout_gravity="center"
+                android:paddingHorizontal="35dp"
+                android:paddingVertical="15dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/inform_toForm"
+        style="@style/text_inform_to_form"
+        android:layout_marginHorizontal="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

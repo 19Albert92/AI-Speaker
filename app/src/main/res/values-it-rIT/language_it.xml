@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="information_toForm">I dati del modulo saranno precrittografati e
+         trasmessi utilizzando una connessione SSL sicura. Non memorizziamo le tue password,
+         ma solo le loro chiavi hash e non trasferiamo alcun dato a terzi.</string>
+
+    <string name="user_agreemer_inform">Utilizzando i nostri servizi, confermi di aver letto e di essere pienamente d\'accordo con questo documento:</string>
+    <string name="user_agreemer">Accordo per gli utenti</string>
+    <!--  login action text  -->
+    <string name="remember_password">Hai dimenticato la password?</string>
+    <string name="click_her">Clicca qui</string>
+    <string name="button_text_login">Entrare</string>
+    <string name="button_text_login_register">Registrati</string>
+    <string name="edit_text_login_email">Inserisci la tua email / login</string>
+    <string name="edit_text_login_password">Inserisci la tua password</string>
+    <string name="login_title">Pagina di login</string>
+
+    <!--  registration action text  -->
+    <string name="registration">Registrati</string>
+    <string name="back">Indietro</string>
+    <string name="edit_text_remember_email">Inserisci il tuo indirizzo email</string>
+    <string name="btn_next_remember">Prossimo</string>
+    <string name="enter_email">Inserisci il tuo indirizzo email</string>
+    <string name="enter_name">Inserisci il tuo nome</string>
+    <string name="enter_lastName">Inserire il cognome</string>
+    <string name="registration_title">Pagina di registrazione</string>
+    <string name="birthDate">Data di nascita:</string>
+    <string name="searchDate">Seleziona la data</string>
+    <string name="date_default" translatable="false">0/0/22</string>
+
+    <!--  remember password action text  -->
+    <string name="rememberPassword_title">Ricorda la pagina della password</string>
+
+    <!--   splash next action text  -->
+    <string name="title_splash">Sono Intelligenza Artificiale</string>
+    <string name="title_decription">Il mio nome è Max. Diventerò il tuo fedele amico e assistente.
+     Ti ricorderò cose importanti, giocherò con te, discuterò problemi e troverò soluzioni.
+     Il futuro è già arrivato!</string>
+    <string name="next_login">Iniziare</string>
+    <string name="text_error">Questo campo è obbligatorio!</string>
+    <string name="successfulyRegistration">Una email è stata inviata al tuo indirizzo email con un link per attivare il tuo account!</string>
+</resources>

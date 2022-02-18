@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.ShowNextActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            style="@style/image_ai"
+            android:id="@+id/main_image" />
+
+        <TextView
+            style="@style/splash_title"
+            android:id="@+id/title_splash_text"
+            android:layout_marginTop="25dp"/>
+
+        <TextView
+            style="@style/spalsh_desc1_text"
+            android:id="@+id/description_splash_text"
+            android:layout_marginHorizontal="25dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/button_next_splash"
+            android:id="@+id/main_button"
+            android:text="@string/next_login"
+            android:paddingHorizontal="35dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_main"
+        style="@style/linear_layout_splash"
+        android:layout_width="wrap_content"
+        android:gravity="center"
+        android:paddingVertical="15dp"
+        android:paddingHorizontal="15dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <CheckBox
+            android:layout_gravity="center"
+            android:id="@+id/checkbox_register"
+            style="@style/checkbox"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <LinearLayout
+            android:layout_gravity="center"
+            android:id="@+id/linear_main"
+            style="@style/linear_layout_splash">
+
+            <TextView
+                android:id="@+id/inform_for_agreement"
+                style="@style/text_inform_for_agreement" />
+
+            <TextView
+                android:id="@+id/doc_user_agreement"
+                style="@style/text_next_agreement_page" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

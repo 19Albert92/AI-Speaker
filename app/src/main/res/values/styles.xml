@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--  show next ativity  -->
+    <style name="image_ai">
+        <item name="android:src">@drawable/ai</item>
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">200dp</item>
+    </style>
+
+    <style name="splash_title">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">serif</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:text">@string/title_splash</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:letterSpacing">.11</item>
+    </style>
+
+    <style name="spalsh_desc1_text">
+        <item name="android:letterSpacing">.10</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">25dp</item>
+        <item name="android:text">@string/title_decription</item>
+    </style>
+
+    <style name="button_next_splash">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">35dp</item>
+        <item name="android:alpha">.5</item>
+        <item name="android:background">@drawable/border_buttons</item>
+        <item name="android:fontFamily">serif</item>
+        <item name="android:letterSpacing">.14</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:text">@string/next_login</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="text_inform_for_agreement">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:text">@string/user_agreemer_inform</item>
+    </style>
+
+    <style name="text_next_agreement_page">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:text">@string/user_agreemer</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:textColor">@color/main_color</item>
+    </style>
+
+    <style name="checkbox">
+        <item name="android:layout_width">35dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:buttonTint">@color/main_color</item>
+    </style>
+
+    <style name="linear_layout_splash">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!--  login activity -->
+
+    <style name="btn_to_registration">
+        <item name="android:text">@string/registration</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_margin">20dp</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:letterSpacing">.14</item>
+        <item name="android:background">@drawable/border_buttons</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="image_ai_login" parent="image_ai">
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">150dp</item>
+    </style>
+
+    <style name="linear_layout_login" parent="linear_layout_splash">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginTop">30dp</item>
+    </style>
+
+    <style name="linear_layout_login_2" parent="linear_layout_login">
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_marginBottom">20dp</item>
+    </style>
+
+    <style name="input_layout_login">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="errorEnabled">true</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+    </style>
+
+    <!--  покажет ошибки  -->
+    <style name="input_layout_error" parent="input_layout_login">
+        <item name="passwordToggleEnabled">true</item>
+        <item name="passwordToggleTint">@color/main_color</item>
+        <item name="passwordToggleContentDescription">description</item>
+    </style>
+
+    <style name="input_text_login">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@drawable/border_edittext</item>
+        <item name="android:hint">@string/edit_text_login_email</item>
+        <item name="errorEnabled">true</item>
+    </style>
+
+    <style name="input_type_email" parent="input_text_login">
+        <item name="android:inputType">textWebEmailAddress</item>
+    </style>
+
+    <style name="input_type_textPassword" parent="input_text_login">
+        <item name="android:inputType">textPassword</item>
+    </style>
+
+    <style name="btn_to_login" parent="button_next_splash">
+        <item name="android:text">@string/button_text_login</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">0dp</item>
+    </style>
+
+    <style name="text_remember_password">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/remember_password</item>
+        <item name="android:layout_marginEnd">5dp</item>
+    </style>
+    <style name="cleck_her_user_agree" parent="text_remember_password">
+        <item name="android:focusable">true</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:text">@string/click_her</item>
+        <item name="android:textColor">@color/main_color</item>
+        <item name="android:layout_marginEnd">0dp</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="text_inform_to_form">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+        <item name="android:letterSpacing">.10</item>
+        <item name="android:text">@string/information_toForm</item>
+    </style>
+
+    <!--  registration activity  -->
+
+    <style name="btn_to_back" parent="btn_to_registration">
+        <item name="android:text">@string/back</item>
+    </style>
+
+    <style name="image_ai_registration" parent="image_ai">
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">120dp</item>
+    </style>
+
+    <style name="input_layout_registration" parent="input_layout_login">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">15dp</item>
+    </style>
+
+    <style name="input_type_text" parent="input_text_login">
+        <item name="android:inputType">text</item>
+    </style>
+
+    <style name="btn_search_birthdate">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">9sp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/searchDate</item>
+        <item name="android:layout_marginEnd">25dp</item>
+    </style>
+
+    <style name="text_birthdate">
+        <item name="android:hint">0/0/12</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_marginEnd">15dp</item>
+    </style>
+
+    <style name="btn_register" parent="btn_to_login">
+        <item name="android:text">@string/button_text_login_register</item>
+    </style>
+
+    <style name="text_birthdate_text" parent="text_birthdate">
+        <item name="android:layout_weight">0</item>
+        <item name="android:layout_marginEnd">0dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:text">@string/birthDate</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <!--  remember activity  -->
+
+    <style name="image_ai_remember" parent="image_ai">
+        <item name="android:layout_width">160dp</item>
+        <item name="android:layout_height">160dp</item>
+        <item name="android:layout_marginBottom">20dp</item>
+    </style>
+
+    <style name="btn_remember_next" parent="btn_to_login">
+        <item name="android:text">@string/btn_next_remember</item>
+    </style>
+
+    <style name="linear_layout_remember_pas">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_height">0dp</item>
+    </style>
+
+</resources>

@@ -1,3 +1,59 @@
 <resources>
-    <string name="app_name">AI-Speaker</string>
+    <string name="app_name" translatable="false">Smart AI</string>
+    <string name="information_toForm" translatable="false">Form data will be pre-encrypted and transmitted using a secure SSL connection. We do not store your passwords, but only their hash keys, and we do not transfer any data to third parties.</string>
+
+    <string name="user_agreemer_inform" translatable="false">By using our services, you confirm that you have read and fully agree with this document:</string>
+    <string name="user_agreemer" translatable="false">User Agreement</string>
+    <!--  login action text  -->
+    <string name="remember_password" translatable="false">Забыли пароль?</string>
+    <string name="click_her" translatable="false">Нажмите сюда</string>
+    <string name="button_text_login" translatable="false">Войти</string>
+    <string name="button_text_login_register" translatable="false">Зарегестрироваться</string>
+    <string name="edit_text_login_email" translatable="false">Enter your email / login</string>
+    <string name="edit_text_login_password" translatable="false">Enter your password</string>
+    <string name="login_title" translatable="false">Login page</string>
+
+    <!--  registration action text  -->
+    <string name="registration" translatable="false">Зарегестрироваться</string>
+    <string name="back" translatable="false">Назад</string>
+    <string name="edit_text_remember_email" translatable="false">Enter your email</string>
+    <string name="btn_next_remember" translatable="false">Дальше</string>
+    <string name="enter_email" translatable="false">Enter your email</string>
+    <string name="enter_name" translatable="false">Enter your name</string>
+    <string name="enter_lastName" translatable="false">Enter your lastname</string>
+    <string name="registration_title" translatable="false">Registration page</string>
+    <string name="birthDate" translatable="false">Birthdate:</string>
+    <string name="searchDate" translatable="false">Выбрать дату</string>
+    <string name="date_default" translatable="false">0/0/22</string>
+
+    <!--  remember password action text  -->
+    <string name="rememberPassword_title" translatable="false">Remember password page</string>
+
+    <!--   splash next action text  -->
+    <string name="title_splash" translatable="false">Я - Искусственный Интеллект</string>
+    <string name="title_decription" translatable="false">Меня зовут Max. Я стану вашим верным другом и помощником.
+        Буду напоминать вам о важных делах, играть с вами, обсуждать проблемы и находить
+        их решение. Будущее уже наступило!</string>
+
+    <string name="next_login" translatable="false">Начать</string>
+    <string name="text_error">Это поле обязателно для запонении!</string>
+    <string name="exit" translatable="false">Выход</string>
+
+    <string name="context_to_bot" translatable="false">Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+        ea commodo consequat.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="title_activity_my_start" translatable="false">MyStartActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label" translatable="false">First Fragment</string>
+    <string name="second_fragment_label" translatable="false">Second Fragment</string>
+    <string name="next" translatable="false">Next</string>
+    <string name="previous" translatable="false">Previous</string>
+
+    <string name="hello_first_fragment" translatable="false">Hello first fragment</string>
+    <string name="hello_second_fragment" translatable="false">Hello second fragment. Arg: %1$s</string>
+    <string name="successfulyRegistration">An email has been sent to your email address with a link to activate your account!</string>
+
 </resources>
