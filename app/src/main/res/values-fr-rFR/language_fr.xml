@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="information_toForm">Les données du formulaire seront pré-cryptées
+         et transférés à l\'aide d\'une connexion SSL sécurisée. Nous ne stockons pas vos mots de passe, mais
+         uniquement leurs clés de hachage, et nous ne partageons aucune donnée avec des tiers.</string>
+
+    <string name="user_agreemer_inform">En utilisant nos services, vous reconnaissez avoir lu et être entièrement d\'accord avec ce document :</string>
+    <string name="user_agreemer">Conditions d\'utilisation</string>
+    <!--  login action text  -->
+    <string name="remember_password">Mot de passe oublié?</string>
+    <string name="click_her">Cliquez ici</string>
+    <string name="button_text_login">Entrer</string>
+    <string name="button_text_login_register">S\'inscrire</string>
+    <string name="edit_text_login_email">Entrez votre email/login</string>
+    <string name="edit_text_login_password">Tapez votre mot de passe</string>
+    <string name="login_title">Page d\'autorisation</string>
+
+    <!--  registration action text  -->
+    <string name="registration">S\'inscrire</string>
+    <string name="back">Retour</string>
+    <string name="edit_text_remember_email">Entrez votre adresse email</string>
+    <string name="btn_next_remember">Plus loin</string>
+    <string name="enter_email">Entrez votre adresse email</string>
+    <string name="enter_name">Entrez votre nom</string>
+    <string name="enter_lastName">Entrez votre nom de famille</string>
+    <string name="registration_title">Page d\'inscription</string>
+    <string name="birthDate">Date d\'anniversaire:</string>
+    <string name="searchDate">Sélectionner une date</string>
+    <string name="date_default" translatable="false">0/0/22</string>
+
+    <!--  remember password action text  -->
+    <string name="rememberPassword_title">Mémoriser la page du mot de passe</string>
+
+    <!--   splash next action text  -->
+    <string name="title_splash">Je suis Intelligence Artificielle</string>
+    <string name="title_decription">Je m\'appelle Max. Je deviendrai votre fidèle ami et assistant.
+         Je vais vous rappeler des choses importantes, jouer avec vous, discuter des problèmes et trouver
+         leur décision. Le futur est déjà arrivé !</string>
+    <string name="next_login">Pour commencer</string>
+    <string name="text_error">Ce champ est requis!</string>
+    <string name="successfulyRegistration">Un e-mail a été envoyé à votre adresse e-mail avec un lien pour activer votre compte !</string>
+</resources>

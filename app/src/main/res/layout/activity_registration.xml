@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.LoginActivity">
+
+    <TextView
+        android:id="@+id/result_valid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/btn_to_back"
+        android:id="@+id/btn_loginTo_registration"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/text_inform_to_form"
+        app:layout_constraintTop_toBottomOf="@+id/btn_loginTo_registration">
+
+        <ImageView
+            style="@style/image_ai_registration"
+            android:id="@+id/ai_login_image" />
+
+        <LinearLayout
+            style="@style/linear_layout_login"
+            android:layout_marginHorizontal="45dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout_to_register_email"
+                style="@style/input_layout_registration"
+                android:layout_marginBottom="5dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/input_type_email"
+                    android:layout_height="50dp"
+                    android:id="@+id/login_registration_email"
+                    android:hint="@string/enter_email" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout_to_register_name"
+                style="@style/input_layout_registration"
+                android:layout_marginBottom="5dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/input_type_text"
+                    android:layout_height="50dp"
+                    android:id="@+id/login_registration_name"
+                    android:hint="@string/enter_name" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout_to_register_lastname"
+                style="@style/input_layout_registration"
+                android:layout_marginBottom="5dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/login_registration_lastName"
+                    style="@style/input_type_text"
+                    android:layout_height="50dp"
+                    android:hint="@string/enter_lastName"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                style="@style/text_birthdate_text"
+                android:layout_marginBottom="5dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="25dp">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/birthDate"
+                    style="@style/btn_search_birthdate"
+                    android:paddingHorizontal="20dp"/>
+
+                <TextView
+                    style="@style/text_birthdate"
+                    android:id="@+id/dateText" />
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/btn_register"
+                android:layout_gravity="center"
+                android:id="@+id/btn_register_toRegister"
+                android:paddingHorizontal="35dp"
+                android:paddingVertical="10dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_inform_to_form"
+        style="@style/text_inform_to_form"
+        android:layout_marginHorizontal="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
