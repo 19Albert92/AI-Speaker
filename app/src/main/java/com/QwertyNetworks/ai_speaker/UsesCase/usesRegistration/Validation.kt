@@ -2,20 +2,9 @@ package com.QwertyNetworks.ai_speaker.UsesCase.usesRegistration
 
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import com.QwertyNetworks.ai_speaker.UsesCase.models.RegistrationUser
-import com.QwertyNetworks.ai_speaker.UsesCase.models.ValidateRegistration
-import com.QwertyNetworks.ai_speaker.db.DBHelper
-import com.QwertyNetworks.ai_speaker.ui.constance.Constance
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlin.properties.Delegates
+import com.QwertyNetworks.ai_speaker.UsesCase.usesRegistration.model.ValidateRegistration
 
 class Validation {
 

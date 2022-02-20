@@ -3,7 +3,7 @@ package com.QwertyNetworks.ai_speaker.UsesCase.usesRemember
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Button
-import com.QwertyNetworks.ai_speaker.UsesCase.models.ValidateRememberEmail
+import com.QwertyNetworks.ai_speaker.UsesCase.usesRemember.model.ValidateRememberEmail
 
 class Validation {
     fun validateToEmpty(

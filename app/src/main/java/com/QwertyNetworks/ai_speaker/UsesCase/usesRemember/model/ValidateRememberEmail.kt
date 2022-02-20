@@ -1,4 +1,4 @@
-package com.QwertyNetworks.ai_speaker.UsesCase.models
+package com.QwertyNetworks.ai_speaker.UsesCase.usesRemember.model
 
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout

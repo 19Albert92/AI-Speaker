@@ -3,7 +3,7 @@ package com.QwertyNetworks.ai_speaker.UsesCase.usesLogin
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Button
-import com.QwertyNetworks.ai_speaker.UsesCase.models.ValidateLogin
+import com.QwertyNetworks.ai_speaker.UsesCase.usesLogin.model.ValidateLogin
 
 class Validation() {
     fun validOnceEdit(
@@ -21,12 +21,14 @@ class Validation() {
             override fun afterTextChanged(s: Editable?) {
                 if(s?.length == 0 ) {
                     buttonAction.alpha = .5F
+                    buttonAction.isClickable = false
                     validate.layoutEmail.error = validate.textError
                     bool1 = false
                 } else {
                     bool1 = true
                     if(bool2 && bool1) {
                         buttonAction.alpha = 1F
+                        buttonAction.isClickable = true
                         validate.layoutEmail.error = null
                     }
                 }
@@ -42,12 +44,14 @@ class Validation() {
             override fun afterTextChanged(s: Editable?) {
                 if(s?.length == 0 ) {
                     buttonAction.alpha = .5F
+                    buttonAction.isClickable = false
                     validate.layoutlogin.error = validate.textError
                     bool2 = false
                 } else {
                     bool2 = true
                     if(bool2 && bool1) {
                         buttonAction.alpha = 1F
+                        buttonAction.isClickable = true
                         validate.layoutlogin.error = null
                     }
                 }

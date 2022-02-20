@@ -2,6 +2,7 @@ package com.QwertyNetworks.ai_speaker
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,70 +10,44 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
-import com.QwertyNetworks.ai_speaker.db.PreferenceHelper
+import com.QwertyNetworks.ai_speaker.db.preferences.PreferencesOther
 import com.QwertyNetworks.ai_speaker.ui.LoginActivity
 import com.QwertyNetworks.ai_speaker.ui.ShowNextActivity
+import com.QwertyNetworks.ai_speaker.ui.constance.Constance
+import com.QwertyNetworks.ai_speaker.ui.main.fragments.MainFragment
 
-
-class MyClass{
-    companion object{
-        @SuppressLint("StaticFieldLeak") var activity: Activity? = null
+    class MyClass{
+        companion object{
+            @SuppressLint("StaticFieldLeak") var activity: Activity? = null
+        }
     }
-}
+
+    val preferencesOther = PreferencesOther()
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var preference: PreferenceHelper
-    private val regTask = 1
-    private lateinit var progressDialog: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
         MyClass.activity = this@MainActivity
 
-        //инициализация сохранения
-        preference = PreferenceHelper(this)
+        val pref = getSharedPreferences("User_information", Context.MODE_PRIVATE)
+        val state = pref?.getString(Constance.USER_ID_KEY, "").toString()
 
-//        if(!preference.getIsLogin()) {
-//            val intent = Intent(this, ShowNextActivity::class.java)
-//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-//            startActivity(intent)
-//            this.finish()
-//        } else {
-//            if (savedInstanceState == null) {
-//                supportFragmentManager.beginTransaction()
-//                    .replace(R.id.container, MainFragment.newInstance())
-//                    .commitNow()
-//            }
-//        }
-
-//        if (savedInstanceState == null) {
-//            val tag = "fragment_1"
-//            showFragmentsAdd(MainFragment.newInstance(), tag)
-//        }
-        val intent = Intent(this, ShowNextActivity::class.java)
+        if(state == "") {
+            val intent = Intent(this, ShowNextActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
-    }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.main_menu, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
-            //выход из своего аккаунта
-            R.id.logOut -> {
-                preference.putIsLogin(false)
-                val intent = Intent(this, LoginActivity::class.java)
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-                startActivity(intent)
-                this.finish()
+            println("this saving to shared: $state")
+        } else {
+            if (savedInstanceState == null) {
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.container, MainFragment.newInstance())
+                    .commitNow()
+                println("this saving to shared: $state")
             }
         }
-        return super.onOptionsItemSelected(item)
     }
 
     fun showFragmentsAdd(fragment: Fragment, tag: String){

@@ -16,8 +16,6 @@ class ShowNextActivity : AppCompatActivity() {
         binding = ActivityShowNextBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        title = "Artificial Intelligence"
-
         initialButtons()
     }
 
@@ -39,7 +37,7 @@ class ShowNextActivity : AppCompatActivity() {
         binding.docUserAgreement.setOnClickListener {
             val intent = Intent(this, WebViewAgreements::class.java)
             startActivity(intent)
-            Toast.makeText(this, "go to the webview", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, "go to the webview", Toast.LENGTH_SHORT).show()
         }
     }
 }

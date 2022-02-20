@@ -3,20 +3,15 @@ package com.QwertyNetworks.ai_speaker.ui
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.DatePickerDialog
-import android.app.ProgressDialog
 import android.content.Intent
-import android.graphics.Color
-import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import com.QwertyNetworks.ai_speaker.R
-import com.QwertyNetworks.ai_speaker.UsesCase.models.RegistrationUser
-import com.QwertyNetworks.ai_speaker.UsesCase.models.ValidateRegistration
+import com.QwertyNetworks.ai_speaker.UsesCase.usesRegistration.model.RegistrationUser
+import com.QwertyNetworks.ai_speaker.UsesCase.usesRegistration.model.ValidateRegistration
 import com.QwertyNetworks.ai_speaker.UsesCase.usesRegistration.Validation
 import com.QwertyNetworks.ai_speaker.databinding.ActivityRegistrationBinding
 import com.QwertyNetworks.ai_speaker.db.DBHelper
-import com.QwertyNetworks.ai_speaker.db.PreferenceHelper
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -62,17 +57,16 @@ class RegistrationActivity : AppCompatActivity(), BackPressed {
         }
 
         //кнопка для перехода при успешной валидации
-
         binding.btnRegisterToRegister.setOnClickListener {
             if(binding.resultValid.text == "true") {
 
                 var resultDate = binding.dateText.text.split('/')
 
-                var resultBool: String
+                var resultRegistration: String
 
                 CoroutineScope(Dispatchers.IO).launch {
                     binding.apply {
-                        resultBool = dbHelper.register( RegistrationUser(
+                        resultRegistration = dbHelper.register( RegistrationUser(
                             email = loginRegistrationEmail,
                             name = loginRegistrationName,
                             lastName = loginRegistrationLastName,
@@ -84,32 +78,31 @@ class RegistrationActivity : AppCompatActivity(), BackPressed {
                         )
                     }
 
-                    val builder = AlertDialog.Builder(this@RegistrationActivity)
-
-                    builder.setTitle("")
-
-                    builder.setMessage(resultBool)
-
-                    builder.setPositiveButton("Ok") { _, _ -> }
 
                     withContext(Dispatchers.Main) {
-                        if(resultBool != "OK") {
-                            var dialog: AlertDialog = builder.create()
-                            dialog.show()
+                        if(resultRegistration != "OK") {
+                            AlertDialog.Builder(this@RegistrationActivity).apply {
+                                setTitle("")
+                                setMessage(resultRegistration)
+                                setNegativeButton("Ok") { _, _ -> }
+                                create().show()
+                            }
                         } else {
                             AlertDialog.Builder(this@RegistrationActivity).apply {
                                 setTitle("")
                                 setMessage(R.string.successfulyRegistration)
-                                setPositiveButton("Ok") { _, _ -> }
+                                setNeutralButton("Ok") { _, _ ->
+                                    val intent = Intent(this@RegistrationActivity, LoginActivity::class.java)
+                                    startActivity(intent)
+                                }
                                 create().show()
                             }
                         }
-//                        println("return text : $resultBool")
+
                     }
                 }
 
-                val intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
+
             }
         }
     }

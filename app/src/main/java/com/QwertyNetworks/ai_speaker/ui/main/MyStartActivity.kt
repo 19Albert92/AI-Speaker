@@ -23,4 +23,9 @@ class MyStartActivity : AppCompatActivity() {
             }, 2500)
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        this.finish()
+    }
 }
