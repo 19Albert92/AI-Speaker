@@ -104,9 +104,6 @@ class DBHelper {
 
         val retrofit = Retrofit.Builder()
             .baseUrl("https://qwertynetworks.com")
-//            .baseUrl("https://test.mybusines.app")//https://test.mybusines.app/api/test_post
-//            .addConverterFactory(create(gson))
-//            .addConverterFactory(GsonConverterFactory.create())
             .addConverterFactory(ScalarsConverterFactory.create())
 
             .client(okHttpClient)

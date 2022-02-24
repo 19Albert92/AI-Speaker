@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.QwertyNetworks.ai_speaker.UsesCase.webview.WebViewAgreement
 import com.QwertyNetworks.ai_speaker.databinding.ActivityShowNextBinding
 
 
@@ -35,7 +36,7 @@ class ShowNextActivity : AppCompatActivity() {
             }
         }
         binding.docUserAgreement.setOnClickListener {
-            val intent = Intent(this, WebViewAgreements::class.java)
+            val intent = Intent(this, WebViewAgreement::class.java)
             startActivity(intent)
 //            Toast.makeText(this, "go to the webview", Toast.LENGTH_SHORT).show()
         }

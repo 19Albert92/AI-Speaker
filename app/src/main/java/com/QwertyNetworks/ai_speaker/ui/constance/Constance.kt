@@ -7,4 +7,7 @@ object Constance {
 
     //user id key
     const val USER_ID_KEY = "user_id_key"
+
+    const val FILECHOOSER_RESULTCODE = 1
+    const val REQUEST_SELECT_FILE = 100
 }
