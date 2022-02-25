@@ -74,16 +74,7 @@ class LoginActivity : AppCompatActivity() {
                  ))
 
                  withContext(Dispatchers.Main){
-                     if(isNumber(resultLogin, '0')||
-                         isNumber(resultLogin, '1')||
-                         isNumber(resultLogin, '2')||
-                         isNumber(resultLogin, '3')||
-                         isNumber(resultLogin, '4')||
-                         isNumber(resultLogin, '5')||
-                         isNumber(resultLogin, '6')||
-                         isNumber(resultLogin, '7')||
-                         isNumber(resultLogin, '8')||
-                         isNumber(resultLogin, '9')) {
+                     if(isNumber(resultLogin)) {
 
                          val textresult = "@qn$resultLogin:qaim.me"
 
@@ -113,8 +104,13 @@ class LoginActivity : AppCompatActivity() {
             view.text = null
         }
 
-        fun isNumber(text: String, char: Char): Boolean {
-            return text.contains(char)
+//        fun isNumber(text: String, char: String): Boolean {
+//            return text.contains(char)
+//        }
+        fun isNumber(text: String): Boolean {
+        val test = text.toIntOrNull()
+        println(test)
+        return test != null
         }
     }
 }

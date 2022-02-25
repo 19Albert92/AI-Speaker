@@ -42,6 +42,11 @@
             android:name=".ui.ShowNextActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.ShowWebAgreements"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            tools:ignore="Instantiatable" />
+        <activity
             android:name=".ui.RememberActivity"
             android:exported="false" />
         <activity

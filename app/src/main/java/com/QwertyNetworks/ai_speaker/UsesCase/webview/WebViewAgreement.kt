@@ -20,7 +20,7 @@ import androidx.activity.OnBackPressedCallback
 import com.QwertyNetworks.ai_speaker.R
 import com.QwertyNetworks.ai_speaker.ui.main.fragments.MainFragment
 
-class WebViewAgreement(var isback: Boolean) : Activity() {
+class WebViewAgreement() : Activity() {
 
     private var mUploadMessageArray: ValueCallback<Array<Uri>>? = null
 
@@ -139,7 +139,7 @@ class WebViewAgreement(var isback: Boolean) : Activity() {
     }
 
     @SuppressLint("SetJavaScriptEnabled")
-    fun showWebViewHTML(webView: WebView, url: String) {
+    fun showWebViewHTML(webView: WebView, loadWeb: String) {
 
         webView.apply {
             settings.javaScriptEnabled = true
@@ -148,7 +148,7 @@ class WebViewAgreement(var isback: Boolean) : Activity() {
             settings.userAgentString = Constance.USER_AGENT
             settings.javaScriptCanOpenWindowsAutomatically = true
 
-            loadUrl(url)
+            loadUrl(loadWeb)
 
             val newWebViewClient: WebViewClient = object : WebViewClient() {
 

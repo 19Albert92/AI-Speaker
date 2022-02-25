@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.WebViewAgreements">
+    tools:context=".ui.ShowWebAgreements">
 
     <WebView
         android:id="@+id/webViewAgreemets"
@@ -12,11 +12,10 @@
         android:layout_height="match_parent"/>
 
     <Button
-        android:layout_margin="10dp"
         android:id="@+id/btn_back"
         android:text="@string/back"
         style="@style/btn_to_back"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

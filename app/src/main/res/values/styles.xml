@@ -166,6 +166,7 @@
 
     <style name="btn_to_back" parent="btn_to_registration">
         <item name="android:text">@string/back</item>
+        <item name="android:layout_margin">10dp</item>
     </style>
 
     <style name="image_ai_registration" parent="image_ai">

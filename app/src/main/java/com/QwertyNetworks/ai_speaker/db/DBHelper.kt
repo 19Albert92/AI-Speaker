@@ -64,11 +64,11 @@ class DBHelper {
                 thisprojectid = 11,
                 this_http_host = "qaim.me",
                 lng = lng,
-                email = RegistrationUser.email.text.toString(),
+                email = RegistrationUser.email.text.toString().trim(),
                 mailretry = "",
                 password = "",
-                yourname = RegistrationUser.name.text.toString(),
-                surname = RegistrationUser.lastName.text.toString(),
+                yourname = RegistrationUser.name.text.toString().trim(),
+                surname = RegistrationUser.lastName.text.toString().trim(),
                 birthdateday = birthday.toInt(),
                 birthdatemonth = birthmonth.toInt(),
                 birthdateyear = birthyear.toInt(),
@@ -114,7 +114,7 @@ class DBHelper {
             val response = servise.setRemeberPassword(
                 thisprojectid = 11,
                 this_http_host = "qaim.me",
-                rememberemail = rememberPassword.remeberPassword.text.toString(),
+                rememberemail = rememberPassword.remeberPassword.text.toString().trim(),
                 lng = lng,
                 checkID = 1,
                 userUTC = 1,
@@ -154,7 +154,7 @@ class DBHelper {
         try {
             val response = servise.setLogin(
                 thisprojectid = 11,
-                loginemail = loginUser.email.text.toString(),
+                loginemail = loginUser.email.text.toString().trim(),
                 loginpassword = passwordMD5,
                 lng = lng,
                 applogin = "ok",

@@ -31,7 +31,6 @@ interface ApiService {
     //remember password
     @FormUrlEncoded
     @POST("/register.php")
-//    @POST("/api/test_post")
     @Headers("User-Agent: Mozilla/4.0 (compatible; Universion/1.0; +https://qwertynetworks.com)",
         "Content-Type: application/x-www-form-urlencoded")
     suspend fun setRemeberPassword(
@@ -47,7 +46,6 @@ interface ApiService {
     //login
     @FormUrlEncoded
     @POST("/register.php")
-//    @POST("/api/test_post")
     @Headers("User-Agent: Mozilla/4.0 (compatible; Universion/1.0; +https://qwertynetworks.com)",
         "Content-Type: application/x-www-form-urlencoded")
     suspend fun setLogin(

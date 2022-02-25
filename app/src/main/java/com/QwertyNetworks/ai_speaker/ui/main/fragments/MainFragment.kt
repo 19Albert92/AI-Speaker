@@ -144,14 +144,11 @@ open class MainFragment : Fragment() {
                                 Manifest.permission.READ_EXTERNAL_STORAGE
                             ), 1)
                         speech.speechStart()
-//                        speech.speechStop()
                     }
                 }
 
                 //отстанавливается запись
                 MotionEvent.ACTION_UP -> {
-                    //отстанавливается запись
-//                    speech.speechStop()
 
                     //функция для вывода и отправки на через webview текста
                     getToTextResult()
@@ -278,11 +275,6 @@ open class MainFragment : Fragment() {
             return;
         mUploadMessageArray?.onReceiveValue(uriArray);
         mUploadMessageArray = null;
-    }
-
-    override fun onStop() {
-        super.onStop()
-//        speechRecognizer.destroy()
     }
 
     override fun onDestroy() {
