@@ -73,8 +73,6 @@ open class MainFragment : Fragment() {
     //speech to text
     private lateinit var speech: SpeechToTexts
 
-//    lateinit var speechRecognizer: SpeechRecognizer
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -83,7 +81,11 @@ open class MainFragment : Fragment() {
         initialWebView()
         initialFloatButtons()
         MyMainViewClass.activity = this.activity
-        speech = SpeechToTexts(_binding!!.texdRes, _binding!!.imageRecording, _binding!!.readFloatBtn)
+        speech = SpeechToTexts(
+            _binding!!.texdRes,
+            _binding!!.imageRecording,
+            _binding!!.readFloatBtn,
+            _binding!!.mainWebView)
         speech.initSpeech(activity!!)
         return binding!!.root
     }
@@ -114,7 +116,7 @@ open class MainFragment : Fragment() {
         // показ webview
         showWebView(
             webView = binding!!.mainWebView,
-            url = "https://mybusines.app/$lng/assistant",
+            url = "https://qaim.me/$lng/assistant",
             user_agent = MY_USER_AGENT,
             parameters = extraHeaders,
             context = context!!)
@@ -149,7 +151,6 @@ open class MainFragment : Fragment() {
 
                 //отстанавливается запись
                 MotionEvent.ACTION_UP -> {
-
                     //функция для вывода и отправки на через webview текста
                     getToTextResult()
                 }
@@ -285,14 +286,14 @@ open class MainFragment : Fragment() {
     fun getToTextResult() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                Thread.sleep(5000)
+                Thread.sleep(4000)
             } catch (ex: Exception) {
                 ex.localizedMessage
             }
             withContext(Dispatchers.Main) {
                 Log.d(Constance.LOG_TAG, binding!!.texdRes.text.toString())
                 var resultText = binding!!.texdRes.text.toString()
-                if(resultText != "") {
+                if (resultText != "") {
                     _binding!!.mainWebView.loadUrl("javascript:get_voice('${resultText}')")
                     "".also { resultText = it }
                 }

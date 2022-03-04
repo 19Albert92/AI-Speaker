@@ -11,11 +11,13 @@ import android.speech.SpeechRecognizer
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
+import android.webkit.WebView
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.QwertyNetworks.ai_speaker.R
 import com.QwertyNetworks.ai_speaker.ui.constance.Constance
+import com.QwertyNetworks.ai_speaker.ui.main.fragments.MainFragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -23,7 +25,11 @@ import kotlinx.coroutines.launch
 import pl.droidsonroids.gif.GifImageView
 import java.util.*
 
-class SpeechToTexts(var extras: TextView, var gif: GifImageView, var button: FloatingActionButton): RecognitionListener, Activity() {
+class SpeechToTexts(
+    var extras: TextView,
+    var gif: GifImageView,
+    var button: FloatingActionButton,
+    var webview: WebView): RecognitionListener, Activity() {
 
     lateinit var speechRecognizer: SpeechRecognizer
 
@@ -33,9 +39,6 @@ class SpeechToTexts(var extras: TextView, var gif: GifImageView, var button: Flo
         speechRecognizer.setRecognitionListener(this)
     }
 
-    fun speechStop() {
-        speechRecognizer.stopListening()
-    }
     fun speechStart() {
         speechRecognizer.startListening(forRecIntent())
     }
@@ -63,6 +66,7 @@ class SpeechToTexts(var extras: TextView, var gif: GifImageView, var button: Flo
         val errorMessage: String = getErrorText(error)
         Log.d(Constance.LOG_TAG, "onError: $errorMessage")
     }
+
     fun getErrorText(error: Int): String {
         var message = when(error) {
             SpeechRecognizer.ERROR_AUDIO -> "Audio recording Error"
@@ -85,11 +89,7 @@ class SpeechToTexts(var extras: TextView, var gif: GifImageView, var button: Flo
         for (result in matches!!.iterator()) {text = """
             $result""" .trimIndent()
         }
-//        CoroutineScope(Dispatchers.Main).launch {
-//            extras.text = text
-//            gif.visibility = View.INVISIBLE
-//            button.setImageResource(R.drawable.ic_baseline_keyboard_voice_24)
-//        }
+
         extras.text = text
         gif.visibility = View.INVISIBLE
         button.setImageResource(R.drawable.ic_baseline_keyboard_voice_24)
@@ -100,7 +100,9 @@ class SpeechToTexts(var extras: TextView, var gif: GifImageView, var button: Flo
     }
 
     override fun onEvent(eventType: Int, params: Bundle?) {
-        TODO("Not yet implemented")
+        val matches = params!!.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
+        println(matches)
+//        webview.loadUrl("javascript:get_voice('${matches}')")
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.QwertyNetworks.ai_speaker.databinding.MainActivityBinding
 import com.QwertyNetworks.ai_speaker.db.preferences.PreferencesOther
+import com.QwertyNetworks.ai_speaker.db.socket.SocketHandler
 import com.QwertyNetworks.ai_speaker.ui.ShowNextActivity
 import com.QwertyNetworks.ai_speaker.ui.constance.Constance
 import com.QwertyNetworks.ai_speaker.ui.main.fragments.MainFragment
@@ -30,6 +31,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         MyClass.activity = this@MainActivity
 
+        if (savedInstanceState != null) {
+            var socketHandler = SocketHandler()
+        }
         val pref = getSharedPreferences("User_information", Context.MODE_PRIVATE)
         val state = pref?.getString(Constance.USER_ID_KEY, "").toString()
 
@@ -45,6 +49,13 @@ class MainActivity : AppCompatActivity() {
                 println("this saving to shared: $state")
             }
         }
+        initial()
+    }
+
+    fun initial() {
+        val socket4 = SocketHandler()
+        socket4.getSockets(applicationContext)
+        socket4.setCountMessage(0)
     }
 
 }
