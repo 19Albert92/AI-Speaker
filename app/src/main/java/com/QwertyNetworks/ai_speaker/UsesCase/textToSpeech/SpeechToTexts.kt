@@ -88,9 +88,9 @@ class SpeechToTexts(
         var text = ""
         for (result in matches!!.iterator()) {text = """
             $result""" .trimIndent()
+            webview.loadUrl("javascript:get_voice('${text}')")
         }
-
-        extras.text = text
+//        extras.text = text
         gif.visibility = View.INVISIBLE
         button.setImageResource(R.drawable.ic_baseline_keyboard_voice_24)
     }

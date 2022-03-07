@@ -9,6 +9,8 @@ import androidx.core.app.NotificationCompat;
 
 import com.QwertyNetworks.ai_speaker.MainActivity;
 import com.QwertyNetworks.ai_speaker.R;
+import com.QwertyNetworks.ai_speaker.db.preferences.PreferencesOther;
+import com.QwertyNetworks.ai_speaker.ui.constance.Constance;
 import com.neovisionaries.ws.client.WebSocket;
 import com.neovisionaries.ws.client.WebSocketAdapter;
 import com.neovisionaries.ws.client.WebSocketFactory;
@@ -21,7 +23,7 @@ import java.util.Map;
 public class SocketHandler {
     WebSocket ws = null;
     private int countMessage = 0;
-    private static String thisMessage = "connected";
+    PreferencesOther preferencesOther = new PreferencesOther();
 
     public int setCountMessage(int count) {
         countMessage = count;
@@ -40,10 +42,12 @@ public class SocketHandler {
                         websocket.connect();
                     }
 
+                    Boolean isSystem = preferencesOther.getToSharedString(Constance.IS_USER_SYSTEM,"isUserSystem", context);
                     if (!text.equals("connected")) {
-                    countMessage++;
-                        natificationSend(context, text, countMessage);
-//                        thisMessage = text;
+                        countMessage++;
+                        if (!isSystem) {
+                            natificationSend(context, text, countMessage);
+                        }
                     }
 
                     System.out.println("connected: " + websocket.isOpen());
