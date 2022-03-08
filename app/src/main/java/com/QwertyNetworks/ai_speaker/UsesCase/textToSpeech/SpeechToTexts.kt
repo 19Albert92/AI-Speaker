@@ -26,7 +26,6 @@ import pl.droidsonroids.gif.GifImageView
 import java.util.*
 
 class SpeechToTexts(
-    var extras: TextView,
     var gif: GifImageView,
     var button: FloatingActionButton,
     var webview: WebView): RecognitionListener, Activity() {
@@ -90,7 +89,6 @@ class SpeechToTexts(
             $result""" .trimIndent()
             webview.loadUrl("javascript:get_voice('${text}')")
         }
-//        extras.text = text
         gif.visibility = View.INVISIBLE
         button.setImageResource(R.drawable.ic_baseline_keyboard_voice_24)
     }
@@ -102,7 +100,6 @@ class SpeechToTexts(
     override fun onEvent(eventType: Int, params: Bundle?) {
         val matches = params!!.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
         println(matches)
-//        webview.loadUrl("javascript:get_voice('${matches}')")
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {

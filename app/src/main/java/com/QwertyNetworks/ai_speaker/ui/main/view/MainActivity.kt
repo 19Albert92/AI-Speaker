@@ -1,4 +1,4 @@
-package com.QwertyNetworks.ai_speaker
+package com.QwertyNetworks.ai_speaker.ui.main.view
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -7,10 +7,10 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.QwertyNetworks.ai_speaker.R
 import com.QwertyNetworks.ai_speaker.databinding.MainActivityBinding
 import com.QwertyNetworks.ai_speaker.db.preferences.PreferencesOther
 import com.QwertyNetworks.ai_speaker.db.socket.SocketHandler
-import com.QwertyNetworks.ai_speaker.ui.ShowNextActivity
 import com.QwertyNetworks.ai_speaker.ui.constance.Constance
 import com.QwertyNetworks.ai_speaker.ui.main.MyStartActivity
 import com.QwertyNetworks.ai_speaker.ui.main.fragments.MainFragment
@@ -33,13 +33,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         MyClass.activity = this@MainActivity
 
-        if (savedInstanceState != null) {
-            var socketHandler = SocketHandler()
-        }
-
         setSaveIsUserSystem(true)
 
-        val state = setGetUserID()
+        val state = getGetUserID()
 
         if(state == "") {
             val intent = Intent(this, ShowNextActivity::class.java)
@@ -51,6 +47,7 @@ class MainActivity : AppCompatActivity() {
                     .add(R.id.container, MainFragment.newInstance(), "fragment_1")
                     .commit()
                 println("this saving to shared: $state")
+                var socketHandler = SocketHandler()
             }
         }
         initial()
@@ -78,29 +75,28 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setSaveIsUserSystem(isBool: Boolean) {
-        preferencesOther.setToUserSystem(Constance.IS_USER_SYSTEM, isBool,"isUserSystem",context = applicationContext)
+        preferencesOther.setToUserSystem(Constance.IS_USER_SYSTEM, isBool,Constance.USER_SYSTEM_IS, applicationContext)
     }
 
-    fun setGetUserID(): String {
-        val pref = getSharedPreferences("User_information", Context.MODE_PRIVATE)
+    fun getGetUserID(): String {
+        val pref = getSharedPreferences(Constance.USER_INFORMATION, Context.MODE_PRIVATE)
         return pref?.getString(Constance.USER_ID_KEY, "").toString()
     }
 
     override fun onBackPressed() {
-
         AlertDialog.Builder(this).apply {
-            setTitle("Подтверждение")
-            setMessage("Вы уверенны, что хотите выйти из программы?")
+            setTitle(R.string.confirmation)
+            setMessage(R.string.isExit)
 
-            setNegativeButton("Нет") {_,_ -> }
-            setPositiveButton("да") {_,_ ->
+            setNegativeButton(R.string.no) { _, _ -> }
+
+            setPositiveButton(R.string.yes) { _, _ ->
                 super.onBackPressed()
                 val intent = Intent(this@MainActivity, MyStartActivity::class.java)
                 startActivity(intent)
-                preferencesOther.setToSharedString(Constance.USER_ID_KEY,"","User_information",this@MainActivity)
+                preferencesOther.setToSharedString(Constance.USER_ID_KEY,"",Constance.USER_INFORMATION,this@MainActivity)
             }
             setCancelable(true)
         }.create().show()
     }
-
 }

@@ -37,4 +37,12 @@
     <string name="next_login">To begin</string>
     <string name="text_error">This field is required!</string>
     <string name="successfulyRegistration">An email has been sent to your email address with a link to activate your account!</string>
+    <string name="confirmation">Confirmation</string>
+    <string name="isExit">Are you sure you want to exit the program?</string>
+
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <string name="settings_AI">Settings</string>
+    <string name="inform_to_AI">By default, you communicate with artificial intelligence , but you can follow this link, create your own artificial intelligence, train it to answer questions and communicate with it  -  </string>
 </resources>

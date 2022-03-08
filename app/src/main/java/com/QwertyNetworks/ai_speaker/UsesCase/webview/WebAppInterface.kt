@@ -7,15 +7,11 @@ import android.speech.tts.Voice
 import android.webkit.JavascriptInterface
 import android.webkit.WebView
 import com.QwertyNetworks.ai_speaker.db.preferences.PreferencesOther
-import com.QwertyNetworks.ai_speaker.ui.LoginActivity
+import com.QwertyNetworks.ai_speaker.ui.main.view.LoginActivity
 import com.QwertyNetworks.ai_speaker.ui.constance.Constance
-import com.google.gson.JsonObject
-import org.jetbrains.annotations.NotNull
-import org.json.JSONObject
-import java.lang.reflect.Array
+import com.QwertyNetworks.ai_speaker.ui.main.fragments.MainFragment
 import java.util.*
 import java.util.concurrent.Executors
-import kotlin.collections.HashMap
 
 class WebAppInterface(private val mContext: Context, private val webView: WebView) {
 
@@ -29,7 +25,6 @@ class WebAppInterface(private val mContext: Context, private val webView: WebVie
         mContext.startActivity(intent)
 
         preferencesOther.setToSharedString(Constance.USER_ID_KEY,"","User_information",mContext)
-        webView.reload()
     }
 
     @JavascriptInterface
@@ -68,5 +63,14 @@ class WebAppInterface(private val mContext: Context, private val webView: WebVie
                 tts.speak(text, TextToSpeech.QUEUE_ADD, null, "")
             }
         })
+    }
+
+    @JavascriptInterface
+    fun updatePage() {
+       webView.post(Runnable {
+           run {
+               webView.reload()
+           }
+       })
     }
 }

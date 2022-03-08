@@ -1,4 +1,4 @@
-package com.QwertyNetworks.ai_speaker.ui
+package com.QwertyNetworks.ai_speaker.ui.main.view
 
 import android.app.AlertDialog
 import android.content.Intent

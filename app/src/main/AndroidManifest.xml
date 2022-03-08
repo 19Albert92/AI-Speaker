@@ -9,27 +9,29 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature android:name="android.hardware.camera"/>
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
-<!--    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS"-->
-<!--        tools:ignore="ProtectedPermissions" />-->
 
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
 
     <application
-        android:requestLegacyExternalStorage="true"
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/NoTitleAndStatusBar"
+        android:usesCleartextTraffic="true"
         tools:targetApi="m">
+        <activity
+            android:name=".ui.main.view.SettingsActivityAi"
+            android:exported="false" />
         <activity
             android:name=".ui.main.MyStartActivity"
             android:exported="true"
-            android:label="@string/title_activity_my_start"
-            android:theme="@style/NoTitleAndStatusBar.NoActionBar" >
+            android:label="@string/app_name"
+            android:theme="@style/NoTitleAndStatusBar.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -42,7 +44,7 @@
             android:theme="@style/Theme.AppCompat.NoActionBar"
             tools:ignore="Instantiatable" />
         <activity
-            android:name=".ui.ShowNextActivity"
+            android:name=".ui.main.view.ShowNextActivity"
             android:exported="false" />
         <activity
             android:name=".ui.ShowWebAgreements"
@@ -50,18 +52,17 @@
             android:theme="@style/Theme.AppCompat.NoActionBar"
             tools:ignore="Instantiatable" />
         <activity
-            android:name=".ui.RememberActivity"
+            android:name=".ui.main.view.RememberActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.RegistrationActivity"
+            android:name=".ui.main.view.RegistrationActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.LoginActivity"
+            android:name=".ui.main.view.LoginActivity"
             android:exported="false" />
         <activity
-            android:exported="false"
-            android:name=".MainActivity">
-        </activity>
+            android:name=".ui.main.view.MainActivity"
+            android:exported="false"></activity>
     </application>
 
 </manifest>

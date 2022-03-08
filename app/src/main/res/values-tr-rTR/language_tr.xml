@@ -39,4 +39,12 @@
          onların kararı. Gelecek çoktan geldi!</string>
     <string name="next_login">Başlamak</string>
     <string name="text_error">Bu alan gereklidir!</string>
+    <string name="confirmation">Onayla</string>
+    <string name="isExit">Programdan çıkmak istediğinizden emin misiniz?</string>
+
+    <string name="yes">Evet</string>
+    <string name="no">Numara</string>
+
+    <string name="settings_AI">Ayarları</string>
+    <string name="inform_to_AI">Varsayılan olarak, yapay zeka ile iletişim kurarsınız, ancak bu bağlantıyı takip edebilir, kendi yapay zekanızı oluşturabilir, soruları cevaplamak için eğitebilir ve onunla iletişim kurabilirsiniz -  </string>
 </resources>

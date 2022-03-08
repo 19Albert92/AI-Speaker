@@ -40,4 +40,12 @@
     <string name="next_login">Начать</string>
     <string name="text_error">Это поле обязателно для запонении!</string>
     <string name="successfulyRegistration">На ваш адрес электронной почты отправлено письмо со ссылкой для активации аккаунта!</string>
+    <string name="confirmation">Подтверждение</string>
+    <string name="isExit">Вы уверенны, что хотите выйти из программы?</string>
+
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+
+    <string name="settings_AI">Настройки</string>
+    <string name="inform_to_AI">По умолчанию вы общаетесь с искусственным интеллектом, но вы можете перейти по этой ссылке, создать свой собственный искусственный интеллект, обучить его отвечать на вопросы и общаться с ним -  </string>
 </resources>

@@ -1,8 +1,9 @@
-package com.QwertyNetworks.ai_speaker.ui
+package com.QwertyNetworks.ai_speaker.ui.main.view
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.DatePickerDialog
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -18,7 +19,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.util.*
 
-class RegistrationActivity : AppCompatActivity(), BackPressed {
+class RegistrationActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityRegistrationBinding
 
@@ -32,12 +33,14 @@ class RegistrationActivity : AppCompatActivity(), BackPressed {
         setContentView(binding.root)
 
         initialBottons()
-        backPressed()
     }
 
     private fun initialBottons() {
         //выбор даты рождения
         createDateBirth()
+
+        // фокус на первое поле вода при входе
+        binding.loginRegistrationEmail.requestFocus()
 
         //валидация на пустоту
         binding.apply {
@@ -73,20 +76,13 @@ class RegistrationActivity : AppCompatActivity(), BackPressed {
                             dateBirth = dateText.text.toString()
                         ),  birthday = resultDate[0].trim(),
                             birthmonth = resultDate[1],
-                            birthyear = resultDate[2],
-                            context = applicationContext
+                            birthyear = resultDate[2]
                         )
                     }
 
-
                     withContext(Dispatchers.Main) {
                         if(resultRegistration != "OK") {
-                            AlertDialog.Builder(this@RegistrationActivity).apply {
-                                setTitle("")
-                                setMessage(resultRegistration)
-                                setNegativeButton("Ok") { _, _ -> }
-                                create().show()
-                            }
+                            showModalWindow(resultRegistration, this@RegistrationActivity)
                         } else {
                             AlertDialog.Builder(this@RegistrationActivity).apply {
                                 setTitle("")
@@ -98,12 +94,13 @@ class RegistrationActivity : AppCompatActivity(), BackPressed {
                                 create().show()
                             }
                         }
-
                     }
                 }
-
-
             }
+        }
+
+        binding.btnLoginToRegistration.setOnClickListener {
+            finish()
         }
     }
 
@@ -126,12 +123,12 @@ class RegistrationActivity : AppCompatActivity(), BackPressed {
         }
     }
 
-    //назад
-    override fun backPressed() {
-        binding.btnLoginToRegistration.setOnClickListener {
-            finish()
+    fun showModalWindow(text: String, context: Context) {
+        AlertDialog.Builder(context).apply {
+            setTitle("")
+            setMessage(text)
+            setNegativeButton("Ok") { _, _ -> }
+            create().show()
         }
     }
-
-
 }

@@ -1,10 +1,10 @@
-package com.QwertyNetworks.ai_speaker.ui
+package com.QwertyNetworks.ai_speaker.ui.main.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.QwertyNetworks.ai_speaker.UsesCase.webview.WebViewAgreement
 import com.QwertyNetworks.ai_speaker.databinding.ActivityShowNextBinding
+import com.QwertyNetworks.ai_speaker.ui.ShowWebAgreements
 
 
 class ShowNextActivity : AppCompatActivity() {

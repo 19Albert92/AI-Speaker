@@ -4,12 +4,8 @@ import android.animation.ObjectAnimator
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.util.Log
-import com.QwertyNetworks.ai_speaker.MainActivity
-import com.QwertyNetworks.ai_speaker.R
+import com.QwertyNetworks.ai_speaker.ui.main.view.MainActivity
 import com.QwertyNetworks.ai_speaker.databinding.ActivityMyStartBinding
-import com.QwertyNetworks.ai_speaker.ui.constance.Constance
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

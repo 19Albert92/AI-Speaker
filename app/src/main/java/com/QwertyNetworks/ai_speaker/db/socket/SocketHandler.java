@@ -7,7 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import androidx.core.app.NotificationCompat;
 
-import com.QwertyNetworks.ai_speaker.MainActivity;
+import com.QwertyNetworks.ai_speaker.ui.main.view.MainActivity;
 import com.QwertyNetworks.ai_speaker.R;
 import com.QwertyNetworks.ai_speaker.db.preferences.PreferencesOther;
 import com.QwertyNetworks.ai_speaker.ui.constance.Constance;
@@ -16,7 +16,6 @@ import com.neovisionaries.ws.client.WebSocketAdapter;
 import com.neovisionaries.ws.client.WebSocketFactory;
 import com.neovisionaries.ws.client.WebSocketFrame;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -42,34 +41,35 @@ public class SocketHandler {
                         websocket.connect();
                     }
 
-                    Boolean isSystem = preferencesOther.getToSharedString(Constance.IS_USER_SYSTEM,"isUserSystem", context);
+                    Boolean isSystem = preferencesOther.getToSharedBoolean(Constance.IS_USER_SYSTEM,"isUserSystem", context);
                     if (!text.equals("connected")) {
                         countMessage++;
                         if (!isSystem) {
                             natificationSend(context, text, countMessage);
                         }
                     }
-
                     System.out.println("connected: " + websocket.isOpen());
                     System.out.println("text result : " + text);
-
-
                 }
 
                 @Override
                 public void onConnected(WebSocket websocket, Map<String, List<String>> headers) throws Exception {
                     super.onConnected(websocket, headers);
-                    websocket.sendText("@1042939:qaim.me");
+                    String userid = preferencesOther.getToSharedString(Constance.USER_ID_KEY,"User_information",context);
+
+                    String stringUserId = String.format("{\"user_id\": \"%s\"}", userid);
+                    websocket.sendText(stringUserId);
+                    System.out.println("server disconnect connect frame: " + websocket.isOpen());
                 }
 
                 @Override
                 public void onDisconnected(WebSocket websocket, WebSocketFrame serverCloseFrame, WebSocketFrame clientCloseFrame, boolean closedByServer) throws Exception {
                     super.onDisconnected(websocket, serverCloseFrame, clientCloseFrame, closedByServer);
                     System.out.println("server disconnect: " + closedByServer);
-                    if (!closedByServer) {
-                        websocket.connect();
-                        onConnected(websocket, null);
-                    }
+                    Thread.sleep(3000);
+                    websocket.connect();
+                    websocket.connectAsynchronously();
+                    System.out.println("server disconnect2: " + closedByServer);
                 }
 
                 @Override
@@ -80,14 +80,13 @@ public class SocketHandler {
                 @Override
                 public void onPingFrame(WebSocket websocket, WebSocketFrame frame) throws Exception {
                     super.onPingFrame(websocket, frame);
-                    websocket.sendText("{\"user_id\": \"@qn1042939:qaim.me\"}");
+                    String userid = preferencesOther.getToSharedString(Constance.USER_ID_KEY,"User_information",context);
+
+                    String stringUserId = String.format("{\"user_id\": \"%s\"}", userid);
+                    websocket.sendText(stringUserId);
                 }
             });
             ws.connectAsynchronously();
-
-            if (ws.isOpen()) {
-                ws.sendText("Message from Android");
-            }
         } catch (IOException e) {
             e.printStackTrace();
         }

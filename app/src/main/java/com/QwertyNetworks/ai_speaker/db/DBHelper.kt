@@ -5,6 +5,7 @@ import android.content.Context
 import com.QwertyNetworks.ai_speaker.UsesCase.usesLogin.model.LoginUser
 import com.QwertyNetworks.ai_speaker.UsesCase.usesRegistration.model.RegistrationUser
 import com.QwertyNetworks.ai_speaker.UsesCase.usesRemember.model.RememberPassword
+import com.QwertyNetworks.ai_speaker.UsesCase.usesSettingsAi.model.SearchNameAi
 import okhttp3.*
 import retrofit2.HttpException
 import retrofit2.Retrofit
@@ -32,8 +33,7 @@ class DBHelper {
         RegistrationUser: RegistrationUser,
         birthday: String,
         birthmonth: String,
-        birthyear: String,
-        context: Context
+        birthyear: String
     ) : String {
 
         var isRegisterTrue = ""
@@ -163,6 +163,40 @@ class DBHelper {
             )
             isLoginTrue = response
             println(response)
+
+        } catch (e: HttpException) {
+            println("Error:  ${e.code()}")
+        }
+        return isLoginTrue
+    }
+
+    //Ai name valid
+    suspend fun ai_valid (
+        searchNameAi: SearchNameAi
+    ) : String {
+
+        var isLoginTrue = ""
+
+        val okHttpClient: OkHttpClient = OkHttpClient.Builder()
+            .connectTimeout(3, TimeUnit.SECONDS)
+            .writeTimeout(3, TimeUnit.SECONDS)
+            .readTimeout(3, TimeUnit.SECONDS)
+            .build()
+
+        val retrofit = Retrofit.Builder()
+            .baseUrl(" https://qaim.me")
+            .addConverterFactory(ScalarsConverterFactory.create())
+            .client(okHttpClient)
+            .build()
+
+        val servise = retrofit.create(ApiService::class.java)
+
+        try {
+            val response = servise.setValidNameAI(
+                bot_id = searchNameAi.aiName.text.toString()
+            )
+            isLoginTrue = response
+            println("this is ai response: $response")
 
         } catch (e: HttpException) {
             println("Error:  ${e.code()}")

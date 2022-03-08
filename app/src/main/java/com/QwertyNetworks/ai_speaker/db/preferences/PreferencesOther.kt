@@ -3,7 +3,12 @@ package com.QwertyNetworks.ai_speaker.db.preferences
 import android.content.Context
 
 class PreferencesOther() {
-    fun getToSharedString(key: String,name: String, context: Context): Boolean? {
+    fun getToSharedString(key: String,name: String, context: Context): String? {
+        val pref = context.getSharedPreferences(name, Context.MODE_PRIVATE)
+        return pref?.getString(key, "")
+    }
+
+    fun getToSharedBoolean(key: String,name: String, context: Context): Boolean? {
         val pref = context.getSharedPreferences(name, Context.MODE_PRIVATE)
         return pref?.getBoolean(key, false)
     }

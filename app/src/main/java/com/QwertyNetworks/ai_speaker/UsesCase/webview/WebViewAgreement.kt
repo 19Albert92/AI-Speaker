@@ -9,16 +9,11 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.webkit.*
-import com.QwertyNetworks.ai_speaker.MyClass.Companion.activity
+import com.QwertyNetworks.ai_speaker.ui.main.view.MyClass.Companion.activity
 import android.webkit.WebChromeClient
 import android.webkit.ValueCallback
 
 import android.webkit.WebView
-
-import android.graphics.Bitmap
-import androidx.activity.OnBackPressedCallback
-import com.QwertyNetworks.ai_speaker.R
-import com.QwertyNetworks.ai_speaker.ui.main.fragments.MainFragment
 
 class WebViewAgreement() : Activity() {
 
@@ -122,20 +117,6 @@ class WebViewAgreement() : Activity() {
 
             mUploadMessageArray?.onReceiveValue(uriArray);
         }
-
-//        if (mUploadMessageArray == null) {
-//            return
-//        }
-//        val result = if (intent == null || resultCode != Activity.RESULT_OK) null else data?.data
-//        result?.let {
-////            var uriArray: Array<Uri> = arrayOf(it)
-//            uriArray = arrayOf(it)
-//            mUploadMessageArray?.onReceiveValue(uriArray)
-//            mUploadMessageArray = null
-//        } ?: kotlin.run {
-//            mUploadMessageArray?.onReceiveValue(null)
-//            mUploadMessageArray = null
-//        }
     }
 
     @SuppressLint("SetJavaScriptEnabled")

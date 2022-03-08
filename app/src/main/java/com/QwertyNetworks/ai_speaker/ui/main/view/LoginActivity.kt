@@ -1,13 +1,9 @@
-package com.QwertyNetworks.ai_speaker.ui
+package com.QwertyNetworks.ai_speaker.ui.main.view
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import com.QwertyNetworks.ai_speaker.MainActivity
 import com.QwertyNetworks.ai_speaker.R
 import com.QwertyNetworks.ai_speaker.UsesCase.usesLogin.model.ValidateLogin
 import com.QwertyNetworks.ai_speaker.UsesCase.usesLogin.Validation
@@ -40,6 +36,10 @@ class LoginActivity : AppCompatActivity() {
         initialBinding()
     }
      private fun initialBinding() {
+
+         // фокус на первое поле вода при входе
+         binding.loginEmail.requestFocus()
+
          //кнопка регистрации
          binding.btnRegistration.setOnClickListener {
              val intent = Intent(this, RegistrationActivity::class.java)
@@ -96,6 +96,10 @@ class LoginActivity : AppCompatActivity() {
                  }
              }
          }
+         binding.btnSettings.setOnClickListener {
+             val intent = Intent(this, SettingsActivityAi::class.java)
+             startActivity(intent)
+         }
      }
 
     companion object {
@@ -103,10 +107,6 @@ class LoginActivity : AppCompatActivity() {
         private fun emptyInputs(view: TextInputEditText) {
             view.text = null
         }
-
-//        fun isNumber(text: String, char: String): Boolean {
-//            return text.contains(char)
-//        }
         fun isNumber(text: String): Boolean {
         val test = text.toIntOrNull()
         println(test)

@@ -138,6 +138,14 @@
         <item name="android:layout_marginTop">0dp</item>
     </style>
 
+    <style name="btn_to_settings" parent="btn_to_login">
+        <item name="android:text">@string/button_text_login</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">0dp</item>
+    </style>
+
     <style name="text_remember_password">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>

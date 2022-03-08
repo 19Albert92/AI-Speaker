@@ -6,21 +6,15 @@ import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import androidx.lifecycle.ViewModelProvider
+import android.graphics.Typeface
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.MotionEvent
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
-import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
-import com.QwertyNetworks.ai_speaker.MyClass
+import com.QwertyNetworks.ai_speaker.ui.main.view.MyClass
 import com.QwertyNetworks.ai_speaker.R
 import com.QwertyNetworks.ai_speaker.databinding.MainFragmentBinding
 import com.QwertyNetworks.ai_speaker.ui.constance.Constance
-import com.QwertyNetworks.ai_speaker.ui.main.viewModel.MainViewModel
 import com.QwertyNetworks.ai_speaker.ui.main.media.permission.PermissionRecorder
 import java.sql.Timestamp
 import java.util.*
@@ -28,15 +22,12 @@ import android.net.Uri
 import android.os.Build
 import android.webkit.*
 import com.QwertyNetworks.ai_speaker.UsesCase.webview.WebAppInterface
-import android.speech.SpeechRecognizer
 import android.speech.tts.TextToSpeech
 import android.util.Log
+import android.view.*
+import androidx.core.app.ActivityCompat
 import com.QwertyNetworks.ai_speaker.UsesCase.textToSpeech.SpeechToTexts
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import java.lang.Exception
+import com.QwertyNetworks.ai_speaker.db.preferences.PreferencesOther
 
 open class MainFragment : Fragment() {
 
@@ -50,7 +41,7 @@ open class MainFragment : Fragment() {
         }
     }
 
-    private lateinit var viewModel: MainViewModel
+    val preferencesOther = PreferencesOther()
 
     private lateinit var permissionRecorder: PermissionRecorder
 
@@ -80,19 +71,17 @@ open class MainFragment : Fragment() {
         _binding = MainFragmentBinding.inflate(inflater, container, false)
         initialWebView()
         initialFloatButtons()
+
         MyMainViewClass.activity = this.activity
         speech = SpeechToTexts(
-            _binding!!.texdRes,
             _binding!!.imageRecording,
             _binding!!.readFloatBtn,
             _binding!!.mainWebView)
         speech.initSpeech(activity!!)
-        return binding!!.root
-    }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        //поднимает поле ввода чтобы его было видно
+        activity!!.window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
+        return binding!!.root
     }
 
     private fun initialWebView() {
@@ -114,12 +103,21 @@ open class MainFragment : Fragment() {
         val MY_USER_AGENT = "Mozilla/4.0 (compatible; Universion/1.0; Android; --$state--; +https://qwertynetworks.com)"
 
         // показ webview
-        showWebView(
-            webView = binding!!.mainWebView,
-            url = "https://qaim.me/$lng/assistant",
-            user_agent = MY_USER_AGENT,
-            parameters = extraHeaders,
-            context = context!!)
+        if (getNameAiBots() != "") {
+            showWebView(
+                webView = binding!!.mainWebView,
+                url = getNameAiBots(),
+                user_agent = MY_USER_AGENT,
+                parameters = extraHeaders,
+                context = context!!)
+        } else if (getNameAiBots() == ""){
+            showWebView(
+                webView = binding!!.mainWebView,
+                url = "https://qaim.me/$lng/assistant/AI",
+                user_agent = MY_USER_AGENT,
+                parameters = extraHeaders,
+                context = context!!)
+        }
 
         // разрешение
         permissionRecorder = PermissionRecorder(context = context)
@@ -150,10 +148,7 @@ open class MainFragment : Fragment() {
                 }
 
                 //отстанавливается запись
-                MotionEvent.ACTION_UP -> {
-                    //функция для вывода и отправки на через webview текста
-                    getToTextResult()
-                }
+                MotionEvent.ACTION_UP -> {}
             }
             return@setOnTouchListener true
         }
@@ -206,6 +201,7 @@ open class MainFragment : Fragment() {
                     view?.loadUrl(url);
                     return true
                 }
+
                 @TargetApi(Build.VERSION_CODES.N)
                 override fun shouldOverrideUrlLoading(
                     view: WebView?,
@@ -283,21 +279,13 @@ open class MainFragment : Fragment() {
         super.onDestroy()
     }
 
-    fun getToTextResult() {
-        CoroutineScope(Dispatchers.IO).launch {
-            try {
-                Thread.sleep(4000)
-            } catch (ex: Exception) {
-                ex.localizedMessage
-            }
-            withContext(Dispatchers.Main) {
-                Log.d(Constance.LOG_TAG, binding!!.texdRes.text.toString())
-                var resultText = binding!!.texdRes.text.toString()
-                if (resultText != "") {
-                    _binding!!.mainWebView.loadUrl("javascript:get_voice('${resultText}')")
-                    "".also { resultText = it }
-                }
-            }
-        }
+    fun getNameAiBots(): String {
+        val pref = context!!.getSharedPreferences(Constance.NAME_AI_CONFIG, Context.MODE_PRIVATE)
+        return pref.getString(Constance.AI_NAME_IS, "").toString()
+    }
+
+    fun showTextText(text: String) {
+        Toast.makeText(context!!, "click this $text", Toast.LENGTH_SHORT).show()
+        Log.d(Constance.LOG_TAG, "click this $text")
     }
 }

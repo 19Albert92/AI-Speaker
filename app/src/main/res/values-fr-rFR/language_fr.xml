@@ -39,4 +39,12 @@
     <string name="next_login">Pour commencer</string>
     <string name="text_error">Ce champ est requis!</string>
     <string name="successfulyRegistration">Un e-mail a été envoyé à votre adresse e-mail avec un lien pour activer votre compte !</string>
+    <string name="confirmation">Confirmation</string>
+    <string name="isExit">Voulez-vous vraiment quitter le programme ?</string>
+
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+
+    <string name="settings_AI">Paramètres</string>
+    <string name="inform_to_AI">Par défaut, vous communiquez avec l\'intelligence artificielle, mais vous pouvez suivre ce lien, créer votre propre intelligence artificielle, l\'entraîner à répondre aux questions et communiquer avec elle -  </string>
 </resources>

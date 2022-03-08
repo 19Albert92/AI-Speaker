@@ -58,4 +58,13 @@ interface ApiService {
         @Field("userUTC") userUTC: Int,
 //    ): Any
     ): String
+
+    //login
+    @FormUrlEncoded
+    @POST("/aiexists.php")
+    @Headers("User-Agent: Mozilla/4.0 (compatible; Universion/1.0; +https://qwertynetworks.com)",
+        "Content-Type: application/x-www-form-urlencoded")
+    suspend fun setValidNameAI(
+        @Field("bot_id") bot_id: String
+    ): String
 }

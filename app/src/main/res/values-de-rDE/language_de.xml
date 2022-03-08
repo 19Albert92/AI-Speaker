@@ -40,4 +40,12 @@
     <string name="next_login">Beginnen</string>
     <string name="text_error">Dieses Feld ist erforderlich!</string>
     <string name="successfulyRegistration">Eine E-Mail mit einem Link zur Aktivierung Ihres Kontos wurde an Ihre E-Mail-Adresse gesendet!</string>
+    <string name="confirmation">Bestätigung</string>
+    <string name="isExit">Möchten Sie das Programm wirklich beenden?</string>
+
+    <string name="yes">Ja</string>
+    <string name="no">Nein</string>
+
+    <string name="settings_AI">Settings</string>
+    <string name="inform_to_AI">Standardmäßig kommunizieren Sie mit künstlicher Intelligenz, aber Sie können diesem Link folgen, Ihre eigene künstliche Intelligenz erstellen, sie darauf trainieren, Fragen zu beantworten und mit ihr zu kommunizieren -  </string>
 </resources>
