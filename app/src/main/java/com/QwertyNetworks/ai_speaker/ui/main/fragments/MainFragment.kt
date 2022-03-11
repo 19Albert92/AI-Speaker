@@ -28,6 +28,7 @@ import android.view.*
 import androidx.core.app.ActivityCompat
 import com.QwertyNetworks.ai_speaker.UsesCase.textToSpeech.SpeechToTexts
 import com.QwertyNetworks.ai_speaker.db.preferences.PreferencesOther
+import com.QwertyNetworks.ai_speaker.db.socket.SocketHandler
 
 open class MainFragment : Fragment() {
 
@@ -106,7 +107,7 @@ open class MainFragment : Fragment() {
         if (getNameAiBots() != "") {
             showWebView(
                 webView = binding!!.mainWebView,
-                url = getNameAiBots(),
+                url = "https://qaim.me/$lng/assistant/${getNameAiBots()}",
                 user_agent = MY_USER_AGENT,
                 parameters = extraHeaders,
                 context = context!!)

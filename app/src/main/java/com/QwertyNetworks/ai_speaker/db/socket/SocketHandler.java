@@ -4,6 +4,7 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
+import org.json.*;
 import android.content.Intent;
 import androidx.core.app.NotificationCompat;
 
@@ -16,6 +17,8 @@ import com.neovisionaries.ws.client.WebSocketAdapter;
 import com.neovisionaries.ws.client.WebSocketFactory;
 import com.neovisionaries.ws.client.WebSocketFrame;
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -32,7 +35,7 @@ public class SocketHandler {
         WebSocketFactory factory = new WebSocketFactory();
 
         try {
-            ws = factory.createSocket("ws://95.216.57.29:8765");
+            ws = factory.createSocket("ws://136.243.60.211:8999");
             ws.addListener(new WebSocketAdapter() {
                 @Override
                 public void onTextMessage(WebSocket websocket, String text) throws Exception {
@@ -41,15 +44,26 @@ public class SocketHandler {
                         websocket.connect();
                     }
 
+                    System.out.println("text result : " + text);
                     Boolean isSystem = preferencesOther.getToSharedBoolean(Constance.IS_USER_SYSTEM,"isUserSystem", context);
+
+                    JSONObject obj = new JSONObject(text);
+                    JSONArray arr = obj.getJSONArray("unread");
+
                     if (!text.equals("connected")) {
-                        countMessage++;
                         if (!isSystem) {
-                            natificationSend(context, text, countMessage);
+                            for (int i = 0; i < arr.length(); i++) {
+                                if (arr.get(i) != "") {
+                                    String message = (String) arr.get(i);
+                                    System.out.println(message);
+                                    countMessage++;
+                                    natificationSend(context, arr, countMessage);
+                                }
+                            }
                         }
                     }
+
                     System.out.println("connected: " + websocket.isOpen());
-                    System.out.println("text result : " + text);
                 }
 
                 @Override
@@ -92,12 +106,12 @@ public class SocketHandler {
         }
     }
 
-    public void natificationSend(Context context, String message, int count) {
-        int numMessages = 1;
+    public void natificationSend(Context context, JSONArray message, int count) {
+        int numMessages = 0;
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "natification");
         builder.setSmallIcon(R.drawable.ainotbg);
         builder.setContentTitle("У вас новое сообщение");
-        builder.setContentText(message);
+//        builder.setContentText(message);
         builder.setNumber(++numMessages);
         builder.setAutoCancel(true);
         builder.setWhen(System.currentTimeMillis());
@@ -112,23 +126,21 @@ public class SocketHandler {
 
         NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
 
-        for (int i=0; i < count; i++) {
-            if (count < 3) {
-                inboxStyle.addLine(message);
-            } else {
-                break;
+        for (int i = 0; i < message.length(); i++) {
+//            if (count < 2) {
+            try {
+                inboxStyle.addLine(message.get(i).toString());
+                inboxStyle.setBigContentTitle("У вас " + message.get(i) + " новое сообщение");
+                builder.setContentText(message.get(i).toString());
+                Thread.sleep(500);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        }
-
-        if (count >= 2) {
-            inboxStyle.setBigContentTitle("У вас новое сообщение");
-        } else {
-            inboxStyle.setBigContentTitle("У вас " + count + " новое сообщение");
         }
 
         builder.setStyle(inboxStyle);
 
         NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        manager.notify(0, builder.build());
+        manager.notify(-1, builder.build());
     }
 }

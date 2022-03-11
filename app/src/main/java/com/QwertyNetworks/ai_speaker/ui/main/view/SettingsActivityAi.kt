@@ -11,7 +11,6 @@ import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import android.text.style.RelativeSizeSpan
 import android.text.style.StyleSpan
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.QwertyNetworks.ai_speaker.R
 import com.QwertyNetworks.ai_speaker.UsesCase.usesSettingsAi.Validation
@@ -33,8 +32,6 @@ class SettingsActivityAi : AppCompatActivity() {
     private val nameApi = "https://qaim.me/myai"
 
     val preferencesOther = PreferencesOther()
-
-    val lng = Locale.getDefault().language
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,8 +66,7 @@ class SettingsActivityAi : AppCompatActivity() {
         binding.btnEnterAi.setOnClickListener {
            if (binding.inputNameBots.text.toString() != "") {
                 CoroutineScope(Dispatchers.IO).launch {
-                val response = DBHelper().ai_valid(SearchNameAi(
-                    binding.inputNameBots))
+                val response = DBHelper().ai_valid(SearchNameAi(binding.inputNameBots))
 
                 withContext(Dispatchers.Main) {
                     if (response == "ERROR") {
@@ -85,7 +81,7 @@ class SettingsActivityAi : AppCompatActivity() {
                             setTitle("")
                             setMessage("Соединение с AI полученно!")
                             setNegativeButton("Ok") { _, _ ->
-                               setNameAiBots("https://qaim.me/$lng/assistant/${binding.inputNameBots.text.toString()}")
+                               setNameAiBots(binding.inputNameBots.text.toString())
                                println("uri ai name: ${getNameAiBots()}")
                                finish()
                             }
@@ -94,8 +90,6 @@ class SettingsActivityAi : AppCompatActivity() {
                     }
                 }
              }
-           } else {
-
            }
         }
 
@@ -103,9 +97,9 @@ class SettingsActivityAi : AppCompatActivity() {
         binding.btnReset.setOnClickListener {
             AlertDialog.Builder(this@SettingsActivityAi).apply {
                 setTitle("")
-                setMessage("По умолчанию ввыбрано AI assistant")
+                setMessage("По умолчанию выбрано AI assistant")
                 setNegativeButton("Ok") { _, _ ->
-                    setNameAiBots("https://qaim.me/$lng/assistant/AI")
+                    setNameAiBots("AI")
                     println("uri ai name: ${getNameAiBots()}")
                     finish()
                 }

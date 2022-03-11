@@ -21,11 +21,4 @@ class ShowWebAgreements: AppCompatActivity() {
             finish()
         }
     }
-
-//    override fun onBackPressed() {
-//        super.onBackPressed()
-//        if(binding.webViewAgreemets.canGoBack()) {
-//            binding.webViewAgreemets.goBack()
-//        }
-//    }
 }
